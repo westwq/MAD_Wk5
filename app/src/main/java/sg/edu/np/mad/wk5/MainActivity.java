@@ -1,14 +1,15 @@
 package sg.edu.np.mad.wk5;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import sg.edu.np.mad.wk5.BrandsRecyclerView.BrandsAdapter;
+import sg.edu.np.mad.wk5.BrandsRecyclerView.Post;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,13 +18,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<String> data =  new ArrayList<>();
+        ArrayList<Post> data =  new ArrayList<>();
 //        data.add("Samsung");
 //        data.add("LG");
 //        data.add("Acer");
         for(int i=0; i<100; i++)
         {
-            data.add("#" + i);
+            Post post = new Post();
+            post.title = "title "+ i;
+            post.username = "username " + i;
+
+            data.add(post);
         }
 
         RecyclerView rv = findViewById(R.id.recyclerView);
